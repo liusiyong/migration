@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const uploadDir = path.join(process.cwd(), 'uploads');
+  const uploadDir = path.join('/tmp', 'uploads');
 
   // Read and parse all bot files
   const bots: { name: string; data: BotFile }[] = [];

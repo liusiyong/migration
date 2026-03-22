@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const uploadDir = path.join(process.cwd(), 'uploads');
+  const uploadDir = path.join('/tmp', 'uploads');
   await mkdir(uploadDir, { recursive: true });
 
   const savedFiles: { name: string; path: string }[] = [];
