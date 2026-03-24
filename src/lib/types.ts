@@ -91,6 +91,79 @@ export interface DiffSummary {
   actionMatchRate: number;
 }
 
+export interface AnalysisResult {
+  botName: string;
+  parseStatus: 'OK' | 'PARTIAL' | 'FAILED';
+  parseWarnings: string[];
+  // A. Bot Size
+  totalActions: number;
+  totalNodes: number;
+  subtaskCalls: number;
+  packagesReferenced: number;
+  // B. Control-Flow
+  ifElseConditions: number;
+  maxIfNesting: number;
+  switchCaseBranches: number;
+  loops: number;
+  maxLoopNesting: number;
+  tryCatchBlocks: number;
+  finallyBlocks: number;
+  // C. Variables
+  totalVariables: number;
+  inputVariables: number;
+  outputVariables: number;
+  globalVariables: number;
+  tableListVariables: number;
+  complexVariables: number;
+  // D. UI Automation
+  uiActions: number;
+  webAutomationActions: number;
+  desktopUiActions: number;
+  objectCloneActions: number;
+  keystrokeActions: number;
+  mouseClickActions: number;
+  coordinateBasedActions: number;
+  waitDelaySteps: number;
+  imageRecognitionActions: number;
+  ocrActions: number;
+  // E. Application Integration
+  distinctApplications: number;
+  browserActions: number;
+  excelActions: number;
+  emailActions: number;
+  pdfActions: number;
+  fileFolderActions: number;
+  databaseActions: number;
+  apiWebServiceCalls: number;
+  cmdInvocations: number;
+  externalAppLaunches: number;
+  credentialVaultLookups: number;
+  networkShareAccesses: number;
+  integrationCount: number;
+  externalDependencyCount: number;
+  // F. Non-Standard / Migration-Risk
+  customDllReferences: number;
+  vbscriptEmbeds: number;
+  javascriptEmbeds: number;
+  pythonEmbeds: number;
+  powershellEmbeds: number;
+  batchScriptEmbeds: number;
+  customPackages: number;
+  legacyCommands: number;
+  deprecatedCommands: number;
+  botToBotDependencies: number;
+  // G. Resilience / Maintainability
+  comments: number;
+  disabledSteps: number;
+  hardcodedValues: number;
+  hardcodedPaths: number;
+  hardcodedCredentials: number;
+  genericErrorHandlers: number;
+  targetedErrorHandlers: number;
+  loggingSteps: number;
+  screenshotActions: number;
+}
+
 export interface ComparisonResult {
   botAName: string;
   botBName: string;
